@@ -19,6 +19,7 @@ h4 {
   color: #ffb74d;
   font-weight: bold;
   text-align: center;
+  font-family: "Shadows Into Light";
 }
 
 h5 {
@@ -29,16 +30,21 @@ h5 {
 }
 
 .gameboard {
-  border: 3px solid #000;
+  border: 10px dotted #ff5722;
   min-height: 500px;
   min-width: 700px;
   margin-bottom: 80px;
+  border-style: ridge;
 }
 
 .images {
   max-height: 300px;
   max-width: 200px;
   margin: 0 auto;
+}
+
+.gif {
+  zoom: 200%;
 }
 
 .messages {
@@ -57,4 +63,8 @@ h5 {
   color: #ff5722;
   font-weight: 900;
   font-family: "Shadows Into Light";
+}
+
+#not {
+  text-decoration: underline;
 }

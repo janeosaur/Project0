@@ -17,13 +17,18 @@ $(document).on("ready", function(){
       firstTime = false;
       var img = document.createElement("img");
       img.src = "images/puppy.gif"
-      $('.images').append(img).addClass("images").fadeOut(4500);
+      $('.images').append(img).addClass("gif").fadeOut(4500);
       $('.messages').append('<p> Game is Loading... </p>').fadeOut(4000);
-
-    }  // idea: animate the ellipsis
+    } else {
+      console.log('press replay to play again')
+    } // next: animate the ellipsis and have pop up image to instruct player to press replay
   } // ends showPuppyGif function on play button click
 
-  // to time out loading image and text
+// after loading screen fades out.. have random (? or looped) zombie image appear -
+//  would this need to be linked with the play on click function??
+// on click, image disappears and new image loads after a few,random seconds
+
+
 
 
 
