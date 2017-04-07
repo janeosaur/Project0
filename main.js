@@ -13,12 +13,14 @@ $(document).on("ready", function(){
   $('#play').on('click', startGame);
 
   function startGame() {
-    setTimeout(showPuppyGif, 500);
-    showImages();
-    // setInterval(showImages, 5000); // try to make interval times random?
-
-  } // ends startGame function on play button click
-
+    if (firstTime) {
+      firstTime = false;
+      showPuppyGif();
+      showImages();
+    } else {
+      console.log('press replay to play again') // turn this into popup
+    }
+  } // end of startGame
 
   // in randomizing loop...
   // var images = 'images/'+imageSource[i]
@@ -27,21 +29,19 @@ $(document).on("ready", function(){
 
 // idea: to have images stack on top of eachother: http://stackoverflow.com/questions/25393877/put-2-images-on-top-of-each-other
 
-  // defining functions
+  // defining functions ------->
+
   function showPuppyGif() {
-    if (firstTime) {
-      firstTime = false;
-      $('.images').append('<img id="gif" src="images/puppy.gif"/>');
-      $('.messages').append($('<p> Game is Loading... </p>', {id: 'loading'}));
-    } else {
-      console.log('press replay to play again')
-    } // next: animate the ellipsis and have pop up image to instruct player to press replay
+      $('.loading').append('<p id="loading"> Game is Loading... </p>').fadeOut(4000);
+      $('.loading').append('<img id="gif" src="images/puppy.gif"/>');
   } // end of showPuppyGif
 
-    // holds gallery of images in array
+  // holds gallery of images in array
   var imageSource = ['zombie1.png', 'zombie2.png', 'zombie3.png', 'zombie4.png', 'zpuppy.jpg', 'puppy1.png', 'puppy2.png', 'puppy3.png', 'puppy4.png'];
 
   function showImages() {
+    $('.images').append('<img id="zombie" src="images/zombie1.png"/>');
+
 
     setTimeout(hidePuppy, 3000);
     function hidePuppy() {
@@ -49,6 +49,8 @@ $(document).on("ready", function(){
         $('#puppy').empty();
       }) //to hide puppy image>
     }
+
+
   } // ends showImages function
 
 
