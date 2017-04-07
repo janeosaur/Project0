@@ -2,19 +2,42 @@ body {
   font-family: "Amatic SC";
   background-color: #455a64;
   color: #eceff1;
-  margin: auto;
+  margin: 0 auto;
   width: 75%;
-  text-align: center;
+
 }
 
 h1 {
   font-weight: 700;
   letter-spacing: 5px;
+  font-size: 100px;
+  text-align: center;
+}
+
+h4 {
+  letter-spacing: 2px;
+  color: #ffb74d;
+  font-weight: bold;
+  text-align: center;
+}
+
+h5 {
+  letter-spacing: 2px;
+  padding: 0 0 10px 0;
+  font-weight: bold;
+  text-align: center;
 }
 
 .gameboard {
-  border: 3px solid #FFF;
-  padding: 30px;
+  border: 3px solid #000;
+  min-height: 500px;
+  min-width: 700px;
+  margin-bottom: 80px;
+}
+
+.nav-wrapper {
+  margin-bottom: 80px;
+  /* need to change color scheme to match*/
 }
 
 #exclamation {
