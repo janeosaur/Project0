@@ -8,7 +8,6 @@ $(document).on("ready", function(){
   // var createdTime;
   // var reactionTime;
 
-
   var firstTime = true; // to ensure play button clickable only once
 
   $('#play').on('click', showPuppyGif);
@@ -18,11 +17,14 @@ $(document).on("ready", function(){
       firstTime = false;
       var img = document.createElement("img");
       img.src = "images/puppy.gif"
-      $('.images').append(img).addClass("images");
-      $('.messages').append('<p> Game is Loading... </p>')
-    } else {
-      // console.log('you already pressed play') // test
-    }
+      $('.images').append(img).addClass("images").fadeOut(4500);
+      $('.messages').append('<p> Game is Loading... </p>').fadeOut(4000);
+
+    }  // idea: animate the ellipsis
   } // ends showPuppyGif function on play button click
+
+  // to time out loading image and text
+
+
 
 }); // ends doc on ready
