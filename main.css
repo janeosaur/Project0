@@ -2,7 +2,23 @@ body {
   font-family: "Amatic SC";
   background-color: #455a64;
   color: #eceff1;
+  margin: auto;
+  width: 75%;
+  text-align: center;
 }
 
 h1 {
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.gameboard {
+  border: 3px solid #FFF;
+  padding: 30px;
+}
+
+#exclamation {
+  color: #ff5722;
+  font-weight: 900;
+  font-family: "Shadows Into Light";
 }
