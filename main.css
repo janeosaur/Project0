@@ -35,6 +35,11 @@ h5 {
   margin-bottom: 80px;
 }
 
+.images {
+  max-height: 300px;
+  max-width: 500px;
+}
+
 .nav-wrapper {
   margin-bottom: 80px;
   /* need to change color scheme to match*/
