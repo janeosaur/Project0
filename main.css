@@ -37,7 +37,15 @@ h5 {
 
 .images {
   max-height: 300px;
-  max-width: 500px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.messages {
+  font-size: 5em;
+  margin: 0 auto;
+  text-align: center;
+
 }
 
 .nav-wrapper {

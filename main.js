@@ -9,19 +9,20 @@ $(document).on("ready", function(){
   // var reactionTime;
 
 
+  var firstTime = true; // to ensure play button clickable only once
 
-// on user hitting play, puppy gif shows up only once
   $('#play').on('click', showPuppyGif);
 
   function showPuppyGif() {
-    var firstTime = true;
     if (firstTime) {
       firstTime = false;
       var img = document.createElement("img");
       img.src = "images/puppy.gif"
       $('.images').append(img).addClass("images");
       $('.messages').append('<p> Game is Loading... </p>')
+    } else {
+      // console.log('you already pressed play') // test
     }
-  }
+  } // ends showPuppyGif function on play button click
 
 }); // ends doc on ready
