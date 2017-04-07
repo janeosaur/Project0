@@ -37,26 +37,37 @@ h5 {
   border-style: ridge;
 }
 
-.images {
+img {
   max-height: 300px;
   max-width: 200px;
   margin: 0 auto;
 }
 
-.gif {
+/*.gif {
   zoom: 200%;
-}
+} */ /*try another way to make gif bigger*/
 
 .messages {
   font-size: 5em;
   margin: 0 auto;
   text-align: center;
-
 }
 
 .nav-wrapper {
   margin-bottom: 80px;
   /* need to change color scheme to match*/
+}
+
+.zombie {
+  max-height: 50px;
+  /* user should click on this, maybe a celebration animation when clicked */
+}
+
+.puppy {
+  max-height: 300px;
+  max-width: 300px;
+  margin: 0 auto;
+  /* user shouldn't click on this. maybe a css jitter animation when clicked?*/
 }
 
 #exclamation {
