@@ -42,22 +42,29 @@ h5 {
   text-align: center;
 }
 
-/*hover effects */
+/*hover effects ?*/
 .replay {
-  font-size: 2em;
-  display: inline-block;
-  text-align: left;
-  float: right;
-  margin-top: 400px;
-  margin-right: 90px;
+  margin-top: 50px;
 }
 
-.play {
+.gamebuttons {
   font-size: 2em;
   display: inline-block;
   float: left;
-  margin-top: 400px;
+  margin-top: 300px;
   margin-left: 100px;
+}
+
+.gamebuttons {
+    -webkit-transition: text-shadow 0.2s linear;
+    -moz-transition: text-shadow 0.2s linear;
+    -ms-transition: text-shadow 0.2s linear;
+    -o-transition: text-shadow 0.2s linear;
+    transition: text-shadow 0.2s linear;
+}
+.gamebuttons :hover {
+    text-shadow: 0 0 30px yellow;
+    text-decoration: underline;
 }
 
 .loading {
