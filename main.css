@@ -10,8 +10,9 @@ body {
 h1 {
   font-weight: 700;
   letter-spacing: 5px;
-  font-size: 100px;
+  font-size: 80px;
   text-align: center;
+  margin-bottom: 0px;
 }
 
 h4 {
@@ -20,6 +21,7 @@ h4 {
   font-weight: bold;
   text-align: center;
   font-family: "Shadows Into Light";
+  margin-top: 0px;
 }
 
 h5 {
@@ -27,15 +29,18 @@ h5 {
   padding: 0 0 10px 0;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 3px;
 }
 
 .gameboard {
-  border: 10px dotted #ff5722;
+  border: 5px dotted #ff5722;
   min-height: 500px;
   min-width: 700px;
-  margin-bottom: 80px;
-  margin-top: 80px;
-  border-style: ridge;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  /*border-style: ridge;*/
 }
 
 .replay {
@@ -43,12 +48,16 @@ h5 {
   display: inline-block;
   text-align: left;
   float: right;
+  margin-top: 400px;
+  margin-right: 100px;
 }
 
 .play {
   font-size: 2em;
   display: inline-block;
   float: left;
+  margin-top: 400px;
+  margin-left: 100px;
 }
 
 .loading {
@@ -57,14 +66,17 @@ h5 {
   text-align: center;
 }
 
-.nav-wrapper {
-  margin-bottom: 80px;
-  /* need to change color scheme to match*/
+.social {
+  float: left;
+  margin: 5px 40px;
+  width: 70px;
+  height: 70px;
 }
 
 #zombie {
   margin: 0 auto;
   max-height: 300px;
+  float: bottom;
   /* user should click on this, maybe a celebration/explosion? animation when clicked */
 }
 

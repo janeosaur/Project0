@@ -18,7 +18,8 @@ $(document).on("ready", function(){
     if (firstTime) {
       firstTime = false;
       showPuppyGif();
-      setTimeout(zombieProtocol, 7000);
+      randomPic();
+      // setTimeout(zombieProtocol, 7000);
     } else {
       console.log('press replay to play again') // turn this into popup
     }
@@ -38,7 +39,7 @@ $(document).on("ready", function(){
     $('#zombie').on('click', function() {
       $('#zombie').remove();
     })
-  }
+  }    // var randomTime = (Math.random()*15000)/2; // for zombies popping up?
 
 
   function showPuppyGif() {
@@ -54,11 +55,14 @@ $(document).on("ready", function(){
     } // end of showPuppyGif
 
 
+  var imageSource = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png', 'images/zombie4.png', 'images/zpuppy.jpg', 'images/puppy1.png', 'images/puppy2.png', ' images/puppy3.png', 'images/puppy4.png'];
 
-  // holds gallery of images in array
-  var imageSource = ['zombie1.png', 'zombie2.png', 'zombie3.png', 'zombie4.png', 'zpuppy.jpg', 'puppy1.png', 'puppy2.png', 'puppy3.png', 'puppy4.png'];
-
-  var randomTime = (Math.random()*15000)/2;
+  function randomPic() {
+    var randomNum = Math.floor(Math.random()*imageSource.length);
+    console.log(randomNum);
+    $('.images').append("<img id='zombie' src=" + ' ' + imageSource[randomNum]+ ' '+ "/>");
+    console.log("<img id='zombie' src=" + imageSource[randomNum] + "/>")
+  }
 
 
   // not sure if this works yet - hasn't been called yet
