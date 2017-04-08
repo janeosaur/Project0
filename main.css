@@ -40,9 +40,9 @@ h5 {
   margin-bottom: 20px;
   margin-top: 20px;
   text-align: center;
-  /*border-style: ridge;*/
 }
 
+/*hover effects */
 .replay {
   font-size: 2em;
   display: inline-block;
@@ -71,6 +71,9 @@ h5 {
   margin: 5px 40px;
   width: 70px;
   height: 70px;
+  font-size: 1.5em;
+  color: white;
+  font-weight: 800;
 }
 
 #zombie {

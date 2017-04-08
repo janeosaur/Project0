@@ -20,21 +20,50 @@ $(document).on("ready", function(){
       $('.play').fadeOut(5000);
   } // end of startGame
 
-  // in randomizing loop...
-  // var images = 'images/'+imageSource[i]
-  // add class to images when appended to page, so that browser knows
-  // it's bad to click on puppy image?
-
 // idea: to have images stack on top of eachother: http://stackoverflow.com/questions/25393877/put-2-images-on-top-of-each-other
 
   // defining functions ------->
+  var zombieImages = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png', 'images/zombie4.png', 'images/zombie.gif'];
+  var puppyImages = ['images/puppy1.png', 'images/puppy2.png', ' images/puppy3.png', 'images/puppy4.png'];
+  // var inputNum = 0; // from form user submitted ?
+
+  function randomPic() {
+    var randomNum = Math.floor(Math.random()*zombieImages.length);
+    if (randomNum % 2 === 0) { // zombie's turn!
+      zombieProtocol();
+    } else {
+      puppyProtocol();
+    }
+  } // end of randomPic
+
+  function puppyProtocol() {
+    var randomNum = Math.floor(Math.random()*puppyImages.length);
+    $('.images').append("<img id='puppy' src='" + puppyImages[randomNum]+ "'/>");
+
+    $('#puppy').on('click', murder);
+
+    $(document).keypress(function(e) {
+      if(e.which == 13) {
+        console.log('You saved a puppy!'); //test
+        $('#puppy').remove();
+      }
+    });
+  }  //end of puppyProtocol
+
+  function murder() {
+    console.log('You killed an innocent puppy'); // test
+    replayGame();
+    // gameover popup? maybe an api to local SPCA?
+  } // end of puppy click murder
+
   function zombieProtocol() {
-    $('.images').append('<img id="zombie" src="images/zombie1.png"/>');
+    var randomNum = Math.floor(Math.random()*zombieImages.length); // need to pull this from above
+    $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomNum]+ ' '+ "/>");
     $('#zombie').on('click', function() {
       $('#zombie').remove();
+      // count num of zombies
     })
   }    // var randomTime = (Math.random()*15000)/2; // for zombies popping up?
-
 
   function showPuppyGif() {
       $('.loading').append('<p id="loading"> Game is Loading... </p>');
@@ -47,16 +76,6 @@ $(document).on("ready", function(){
         }) //end of hidePuppyGif
       }
     } // end of showPuppyGif
-
-
-  var imageSource = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png', 'images/zombie4.png', 'images/zpuppy.jpg', 'images/puppy1.png', 'images/puppy2.png', ' images/puppy3.png', 'images/puppy4.png'];
-
-  function randomPic() {
-    var randomNum = Math.floor(Math.random()*imageSource.length);
-    console.log(randomNum);
-    $('.images').append("<img id='zombie' src=" + ' ' + imageSource[randomNum]+ ' '+ "/>");
-    console.log("<img id='zombie' src=" + imageSource[randomNum] + "/>")
-  }
 
 
   // not sure if this works yet - hasn't been called yet
