@@ -23,23 +23,31 @@ $(document).on("ready", function(){
  // 4. gun image to mimic aiming?
  // 5. reaction time
 
+  // play button
   $('.play').on('click', function startGame() {
       showPuppyGif();
       randomPic(); // may
       $('.play').fadeOut(5000);
   })
 
-  // defining functions ------->
-  var zombieImages = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png', 'images/zombie4.png', 'images/zombie.gif'];
+  // replay button
+  $('.replay').on('click', function replayGame() {
+    $('.images').empty();
+    $('#popup').empty();
+    $('.play').fadeIn(1000);
+  });
+
+  // defining variables & functions ------->
+  var zombieImages = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png', 'images/zombie4.png'];
   var puppyImages = ['images/puppy1.png', 'images/puppy2.png', ' images/puppy3.png', 'images/puppy4.png'];
 
 
   function randomPic() {
     var randomNum = Math.floor(Math.random()*zombieImages.length);
     if (randomNum % 2 === 0) { // zombie's turn!
-      zombieProtocol();
+      setTimeout(zombieProtocol, 4000);
     } else {
-      puppyProtocol();
+      setTimeout(puppyProtocol, 4000);
     }
   } // end of randomPic
 
@@ -49,16 +57,14 @@ $(document).on("ready", function(){
     $('#puppy').on('click', murder); // if puppy gets clicked, then game lost.
     $(document).keypress(function(e) {
       if(e.which == 13) {
-        console.log('You saved a puppy!'); //test
         $('#puppy').remove();
       }
     });
   }  //end of puppyProtocol
 
   function murder() {
-    console.log('You killed an innocent puppy'); // test
+    $('#popup').append('<div> YOU KILLED THIS INNOCENT PUPPY :( </div>'); // try to make this popup message?
     replayGame();
-    // gameover popup? maybe an api to local SPCA?
   } // end of puppy click murder
 
   function zombieProtocol() {
@@ -73,11 +79,5 @@ $(document).on("ready", function(){
 
 
 
-
-  // replay function --
-  $('.replay').on('click', function replayGame() {
-    $('.images').empty();
-    $('.play').fadeIn(1000);
-  });
 
 }); // ends doc on ready
