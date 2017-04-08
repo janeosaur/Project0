@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <title> !(Kill) the Puppies</title>
 
+    <!-- jQuery  -->
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Shadows+Into+Light|Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Shadows+Into+Light|Material" rel="stylesheet">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
-
-    <!-- jQuery  -->
-    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
@@ -32,8 +32,10 @@
       <h5> And try to do it as fast as you can! </h5>
 
       <!-- next: try to strategically place icons, why doesn't pointer show when hovered?  -->
-      <i class="large material-icons" id = "replay">insert_replay</i>
-      <i class="large material-icons" id = "play">insert_play_arrow</i>
+      <div class = "gamebuttons">
+        <div class = "play"> Play </div>
+        <div class = "replay"> Replay </div>
+      </div>
 
       <div class = "gameboard">
         <div class = "loading">

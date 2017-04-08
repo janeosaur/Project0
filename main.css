@@ -34,21 +34,25 @@ h5 {
   min-height: 500px;
   min-width: 700px;
   margin-bottom: 80px;
+  margin-top: 80px;
   border-style: ridge;
 }
 
-img {
-  max-height: 300px;
-  max-width: 200px;
-  margin: 0 auto;
+.replay {
+  font-size: 2em;
+  display: inline-block;
+  text-align: left;
+  float: right;
 }
 
-/*.gif {
-  zoom: 200%;
-} */ /*try another way to make gif bigger*/
+.play {
+  font-size: 2em;
+  display: inline-block;
+  float: left;
+}
 
 .loading {
-  font-size: 5em;
+  font-size: 4em;
   margin: 0 auto;
   text-align: center;
 }
@@ -58,12 +62,13 @@ img {
   /* need to change color scheme to match*/
 }
 
-.zombie {
-  max-height: 50px;
-  /* user should click on this, maybe a celebration animation when clicked */
+#zombie {
+  margin: 0 auto;
+  max-height: 300px;
+  /* user should click on this, maybe a celebration/explosion? animation when clicked */
 }
 
-.puppy {
+#puppy {
   max-height: 300px;
   max-width: 300px;
   margin: 0 auto;
@@ -107,5 +112,3 @@ img {
     transform: translate3d(4px, 0, 0);
   }
 }
-
-/* test */

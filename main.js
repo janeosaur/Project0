@@ -10,16 +10,19 @@ $(document).on("ready", function(){
 
   var firstTime = true; // to ensure play button clickable only once
 
-  $('#play').on('click', startGame);
+  $('.play').on('click', startGame);
+  // have button disappear and replay button appear? - could remove firstTime variable this way
+
 
   function startGame() {
     if (firstTime) {
       firstTime = false;
       showPuppyGif();
-      showImages();
+      setTimeout(zombieProtocol, 7000);
     } else {
       console.log('press replay to play again') // turn this into popup
     }
+    $('.play').fadeOut(5000);
   } // end of startGame
 
   // in randomizing loop...
@@ -30,37 +33,57 @@ $(document).on("ready", function(){
 // idea: to have images stack on top of eachother: http://stackoverflow.com/questions/25393877/put-2-images-on-top-of-each-other
 
   // defining functions ------->
+  function zombieProtocol() {
+    $('.images').append('<img id="zombie" src="images/zombie1.png"/>');
+    $('#zombie').on('click', function() {
+      $('#zombie').remove();
+    })
+  }
+
 
   function showPuppyGif() {
-      $('.loading').append('<p id="loading"> Game is Loading... </p>').fadeOut(4000);
+      $('.loading').append('<p id="loading"> Game is Loading... </p>');
+      // .fadeOut(4000);
       $('.loading').append('<img id="gif" src="images/puppy.gif"/>');
-  } // end of showPuppyGif
+      hidePuppyGif();
+      function hidePuppyGif() {
+        $('.loading').children().fadeOut(4000, function() {
+          $('.loading').empty();
+        }) //end of hidePuppyGif
+      }
+    } // end of showPuppyGif
+
+
 
   // holds gallery of images in array
   var imageSource = ['zombie1.png', 'zombie2.png', 'zombie3.png', 'zombie4.png', 'zpuppy.jpg', 'puppy1.png', 'puppy2.png', 'puppy3.png', 'puppy4.png'];
 
-  function showImages() {
-    $('.images').append('<img id="zombie" src="images/zombie1.png"/>');
+  var randomTime = (Math.random()*15000)/2;
 
 
+  // not sure if this works yet - hasn't been called yet
+  function showImage() {
     setTimeout(hidePuppy, 3000);
     function hidePuppy() {
-      $('#puppy').children().fadeOut(2000, function() {
+      $('#puppy').children().fadeOut(4000, function() {
         $('#puppy').empty();
       }) //to hide puppy image>
     }
-
-
   } // ends showImages function
 
 
 
   // replay function --
-  function replay() {
+  $('.replay').on('click', replayGame);
+
+  function replayGame() {
     firstTime = true;
+    $('.images').empty();
+    $('.play').fadeIn(2000);
   }
 
 }); // ends doc on ready
+
 
 
 // tried to make image object constructor to hold id and src but this didn't append to page...
