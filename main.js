@@ -15,15 +15,9 @@ $(document).on("ready", function(){
 
 
   function startGame() {
-    if (firstTime) {
-      firstTime = false;
       showPuppyGif();
       randomPic();
-      // setTimeout(zombieProtocol, 7000);
-    } else {
-      console.log('press replay to play again') // turn this into popup
-    }
-    $('.play').fadeOut(5000);
+      $('.play').fadeOut(5000);
   } // end of startGame
 
   // in randomizing loop...
