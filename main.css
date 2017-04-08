@@ -80,14 +80,12 @@ h5 {
   margin: 0 auto;
   max-height: 300px;
   float: bottom;
-  /* user should click on this, maybe a celebration/explosion? animation when clicked */
 }
 
 #puppy {
   max-height: 300px;
   max-width: 300px;
   margin: 0 auto;
-  /* user shouldn't click on this. maybe a css jitter animation when clicked?*/
 }
 
 #exclamation {

@@ -3,29 +3,36 @@ console.log("JS is linked!");
 
 $(document).on("ready", function(){
 
+  function showPuppyGif() {     // loading screen
+    $('.loading').append('<p id="loading"> Game is Loading... </p>');
+    $('.loading').append('<img id="gif" src="images/puppy.gif"/>');
+    $('.loading').children().fadeOut(4000, function() {
+      $('.loading').empty();
+      })
+    }
+
 // will need these variables if i want to record reaction time...
   // var clickedTime;
   // var createdTime;
   // var reactionTime;
 
-  var firstTime = true; // to ensure play button clickable only once
+ // things to work on:
+ // 1. random location & size? for images
+ // 2. pop up messages for game loss
+ // 3. counter to count num zombies killed
+ // 4. gun image to mimic aiming?
+ // 5. reaction time
 
-  $('.play').on('click', startGame);
-  // have button disappear and replay button appear? - could remove firstTime variable this way
-
-
-  function startGame() {
+  $('.play').on('click', function startGame() {
       showPuppyGif();
-      randomPic();
+      randomPic(); // may
       $('.play').fadeOut(5000);
-  } // end of startGame
-
-// idea: to have images stack on top of eachother: http://stackoverflow.com/questions/25393877/put-2-images-on-top-of-each-other
+  })
 
   // defining functions ------->
   var zombieImages = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png', 'images/zombie4.png', 'images/zombie.gif'];
   var puppyImages = ['images/puppy1.png', 'images/puppy2.png', ' images/puppy3.png', 'images/puppy4.png'];
-  // var inputNum = 0; // from form user submitted ?
+
 
   function randomPic() {
     var randomNum = Math.floor(Math.random()*zombieImages.length);
@@ -39,9 +46,7 @@ $(document).on("ready", function(){
   function puppyProtocol() {
     var randomNum = Math.floor(Math.random()*puppyImages.length);
     $('.images').append("<img id='puppy' src='" + puppyImages[randomNum]+ "'/>");
-
-    $('#puppy').on('click', murder);
-
+    $('#puppy').on('click', murder); // if puppy gets clicked, then game lost.
     $(document).keypress(function(e) {
       if(e.which == 13) {
         console.log('You saved a puppy!'); //test
@@ -65,49 +70,14 @@ $(document).on("ready", function(){
     })
   }    // var randomTime = (Math.random()*15000)/2; // for zombies popping up?
 
-  function showPuppyGif() {
-      $('.loading').append('<p id="loading"> Game is Loading... </p>');
-      // .fadeOut(4000);
-      $('.loading').append('<img id="gif" src="images/puppy.gif"/>');
-      hidePuppyGif();
-      function hidePuppyGif() {
-        $('.loading').children().fadeOut(4000, function() {
-          $('.loading').empty();
-        }) //end of hidePuppyGif
-      }
-    } // end of showPuppyGif
 
-
-  // not sure if this works yet - hasn't been called yet
-  function showImage() {
-    setTimeout(hidePuppy, 3000);
-    function hidePuppy() {
-      $('#puppy').children().fadeOut(4000, function() {
-        $('#puppy').empty();
-      }) //to hide puppy image>
-    }
-  } // ends showImages function
 
 
 
   // replay function --
-  $('.replay').on('click', replayGame);
-
-  function replayGame() {
-    firstTime = true;
+  $('.replay').on('click', function replayGame() {
     $('.images').empty();
-    $('.play').fadeIn(2000);
-  }
+    $('.play').fadeIn(1000);
+  });
 
 }); // ends doc on ready
-
-
-
-// tried to make image object constructor to hold id and src but this didn't append to page...
-  // function ImageConstruct(idname, srcpath) {
-  //   this.id = idname,
-  //   this.src = srcpath
-  // }
-  // var loopedImage = imageSource[0] // try to loop...
-  // var zombie = new ImageConstruct('zombie', loopedImage)
-  // $('body').append($('<img>', zombie));
