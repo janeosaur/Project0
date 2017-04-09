@@ -33,18 +33,17 @@ h5 {
   padding-bottom: 3px;
 }
 
-img {
-  display: inline-block;
-  position: relative;
+.container {
+  text-align: center;
 }
 
 .gameboard {
-  border: 5px dotted #ff5722;
   min-height: 500px;
   min-width: 700px;
   margin-bottom: 20px;
   margin-top: 20px;
   text-align: center;
+  border: 5px dotted #fff59d;
 }
 
 .replay {
@@ -80,11 +79,6 @@ img {
   min-width: 700px;
   position: relative;
 }
-/*
-.messages .images {
-  position: absolute;
-  font-size: 30px;
-}*/
 
 .social {
   float: left;
@@ -94,6 +88,11 @@ img {
   font-size: 1.5em;
   color: white;
   font-weight: 800;
+}
+
+img {
+  display: inline-block;
+  position: relative;
 }
 
 #zombie {

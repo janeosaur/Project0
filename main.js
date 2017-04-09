@@ -33,10 +33,9 @@ $(document).on("ready", function(){
 
 
   function randomPic() {
-    var randomNum = Math.floor(Math.random()*1000);
     var randomTime = 2000 + Math.random()*3000;
 
-    if (randomNum % 2 === 0) { // zombie's turn
+    if (Math.random() > 0.35) { // zombie's turn
       setTimeout(zombieProtocol, randomTime);
     } else { // pupppy's turn
       setTimeout(puppyProtocol, randomTime);
@@ -44,26 +43,22 @@ $(document).on("ready", function(){
   } // end of randomPic
 
   function zombieProtocol() {
-    var randomNum = Math.floor(Math.random()*zombieImages.length); // need to pull this from above
-    $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomNum]+ ' '+ "/>");
+    var randomIndex = Math.floor(Math.random()*zombieImages.length);
+    $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomIndex]+ ' '+ "/>");
     $('#zombie').on('click', function() {
       $('#zombie').remove();
+      randomPic();
       // count num of zombies
     });
   }
 
-  // how to continue game? document.onclick's nested in other on clicks/
-
-
-
-
-
   function puppyProtocol() {
-    var randomNum = Math.floor(Math.random()*puppyImages.length);
-    $('.images').append("<img id='puppy' src='" + puppyImages[randomNum]+ "'/>");
+    var randomIndex = Math.floor(Math.random()*puppyImages.length);
+    $('.images').append("<img id='puppy' src='" + puppyImages[randomIndex]+ "'/>");
     $(document).keypress(function(e) { // on enter keypress, puppy image gets removed
       if(e.which == 13) {
         $('#puppy').remove();
+        randomPic();
       }
     });
 
@@ -92,48 +87,41 @@ $(document).on("ready", function(){
 // test
 
 
-	// function makeBox() {
-	// 		var time=Math.random()*3000;
+	function makeBox() {
+		var time=Math.random()*3000;
+
+		setTimeout(function() {
+
+			if (Math.random()>0.5) {
+        // choosing type of pic? could use this for zombie or puppy
+				$("#box").style.borderRadius="100px";
+				} else {
+				$("#box").style.borderRadius="0";
+				}
+
+
+
+
+			createdTime=Date.now();
+
+		}, time);
+
+	}
+
   //
-	// 	setTimeout(function() {
-  //
-	// 		if (Math.random()>0.5) {
-  //       // choosing type of pic? could use this for zombie or puppy
-	// 			$("#box").style.borderRadius="100px";
-	// 			} else {
-	// 			$("#box").style.borderRadius="0";
-	// 			}
-  //
-	// 		var top = Math.random()*300;
-	// 		var left= Math.random()*500;
-  //
-	// 		$("#box").style.top = top + "px";
-	// 		$("#box").style.left = left + "px";
-  //
-	// 		$("#box").style.backgroundColor=getRandomColor();
-  //
-	// 		$("#box").style.display="block";
-  //
-	// 		createdTime=Date.now();
-  //
-	// 	}, time);
-  //
-	// }
-  //
-  // //
-  //
-	// $("#box").on('click', function() {
-  //
-	// 	var clickedTime = Date.now();
-  //
-	// 	var reactionTime = (clickedTime-createdTime)/1000;
-  //
-	// 	$('.reaction').append(reactionTime + "seconds");
-  //
-	// 	this.style.display="none";
-  //
-	// 	makeBox();
-	// })
+
+	$("#box").on('click', function() {
+
+		var clickedTime = Date.now();
+
+		var reactionTime = (clickedTime-createdTime)/1000;
+
+		$('.reaction').append(reactionTime + "seconds");
+
+		this.style.display="none";
+
+		// makeBox();
+	})
 
 	// makeBox();
 
@@ -147,7 +135,8 @@ $(document).on("ready", function(){
    // 3. counter to count num zombies killed
    // 4. gun image to mimic aiming?
    // 5. reaction time
-
+  // 6. zombie scream audio
+  // 7. sound on/off feature
 
 
 }); // ends doc on ready
