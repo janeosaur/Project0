@@ -27,6 +27,7 @@
 
 
     <div class = "gamebuttons">
+      <!-- try to have replay not move positions -->
       <div class = "play"> Play </div>
       <div class = "replay"> Replay </div>
     </div>
@@ -38,13 +39,14 @@
       <h5> And try to do it as fast as you can! </h5>
 
       <div class = "gameboard">
-        <div class = "loading" id="popup">
-          <!-- loading images/gif will appear here -->
+        <div class = "loading">
+          <div class ="messages" id="popup">
+            <!-- loading images/gif will appear here -->
+          </div>
+          <div class ="images">
+            <!-- append game images here -->
+          </div>
         </div>
-        <div class ="images">
-        <!-- append game images here -->
-        </div>
-
       </div>
 
       <div class="navbar">
@@ -57,7 +59,8 @@
 
     </div>  <!-- ends div container -->
 
-    <div class = "reaction">
+    <div class = "reaction" id ="box">
+      <p class="reaction"> Best Reaction Time: </p>
       <!-- add best reaction time here -->
     </div>
     <div lass = "killcount">

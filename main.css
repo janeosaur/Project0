@@ -33,6 +33,11 @@ h5 {
   padding-bottom: 3px;
 }
 
+img {
+  display: inline-block;
+  position: relative;
+}
+
 .gameboard {
   border: 5px dotted #ff5722;
   min-height: 500px;
@@ -42,9 +47,9 @@ h5 {
   text-align: center;
 }
 
-/*hover effects ?*/
 .replay {
   margin-top: 50px;
+  position: absolute;
 }
 
 .gamebuttons {
@@ -56,15 +61,15 @@ h5 {
 }
 
 .gamebuttons {
-    -webkit-transition: text-shadow 0.2s linear;
-    -moz-transition: text-shadow 0.2s linear;
-    -ms-transition: text-shadow 0.2s linear;
-    -o-transition: text-shadow 0.2s linear;
-    transition: text-shadow 0.2s linear;
+  -webkit-transition: text-shadow 0.2s linear;
+  -moz-transition: text-shadow 0.2s linear;
+  -ms-transition: text-shadow 0.2s linear;
+  -o-transition: text-shadow 0.2s linear;
+  transition: text-shadow 0.2s linear;
 }
 .gamebuttons :hover {
-    text-shadow: 0 0 30px yellow;
-    text-decoration: underline;
+  text-shadow: 0 0 30px yellow;
+  text-decoration: underline;
 }
 
 .loading {
@@ -73,7 +78,13 @@ h5 {
   text-align: center;
   min-height: 400px;
   min-width: 700px;
+  position: relative;
 }
+/*
+.messages .images {
+  position: absolute;
+  font-size: 30px;
+}*/
 
 .social {
   float: left;
