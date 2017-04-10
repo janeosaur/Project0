@@ -7,12 +7,11 @@ $(document).on("ready", function(){
   $('.play').on('click', function startGame() {
       loadingScreen();
       randomPic();
-      $('.play').fadeOut(5000); // removes play button when pressed
+      $('.play').fadeOut(3000); // removes play button when pressed
   })
 
   function replayGame() {
     $('.images').empty();
-    $('#popup').empty();
     $('.play').fadeIn(1000);
   }
 
@@ -42,48 +41,47 @@ $(document).on("ready", function(){
   function zombieProtocol() {
     var createdTime = Date.now();
     var randomIndex = Math.floor(Math.random()*zombieImages.length);
-    $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomIndex]+ ' '+ "/>");
+    $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomIndex]+ ' '+ ">");
 
     // define zombie clicking function
     $('#zombie').on('click', function(event) {
       clickedTime = Date.now();
       reactionTime = (clickedTime - createdTime)/1000;
-      $('.reaction').append('<p>  ' +reactionTime + ' seconds &nbsp &nbsp </p>');
+      $('.times').append(`<p> ${reactionTime} seconds </p>`);
       event.target.style.display = 'none';
       replayGame();
     });
   }
 
-   // can the popup have link to go to SPCA? or any API ?
+
 
 // have either a puppy or zombie show up, challenge user to kil zombie or save puppy as fast as possible.
 // have name input that logs all users, and best score will show?
 
   function puppyProtocol() {
     var randomIndex = Math.floor(Math.random()*puppyImages.length);
-    $('.images').append("<img id='puppy' src='" + puppyImages[randomIndex]+ "'/>");
+    $('.images').append("<img id='puppy' src='" + puppyImages[randomIndex]+ "'>");
 
     // define puppy saving function
     $(document).keypress(function(e) { // on enter keypress, puppy image gets removed
       if(e.which == 13) {
-        $('#puppy').remove();
+        $('#puppy').empty();
       };
       replayGame();
     });
 
     $('#puppy').on('click', function murder(){ // if puppy gets clicked, then loser game.
-      $('.gameboard').prepend('<img id="popup" src="images/stop.png"/>');
+      $('.messages').prepend('<h1 class="killer"> You killed an innocent puppy! =( </h1>');
+      $('.savecount').empty();
       replayGame();
     });
   }
 
 
    // things to work on:
-   // 1. random location & size? for images
    // 2. pop up messages for game loss
    // 3. counter to count num zombies killed
    // 4. gun image to mimic aiming?
-   // 5. reaction time
    // 6. zombie scream audio
    // 7. sound on/off feature
 
