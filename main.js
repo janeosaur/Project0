@@ -24,7 +24,7 @@ $(document).on("ready", function(){
     }
 
   // defining variables & functions ------->
-  var zombieImages = ['images/zombie1.png', 'images/zombie2.png'];
+  var zombieImages = ['images/zombie1.png', 'images/zombie2.png', 'images/zombie3.png'];
   var puppyImages = ['images/puppy1.png', 'images/puppy2.png'];
 
 
@@ -37,6 +37,7 @@ $(document).on("ready", function(){
       setTimeout(puppyProtocol, randomTime);
     }
   } // end of randomPic
+
 
   function zombieProtocol() {
     var createdTime = Date.now();
@@ -52,11 +53,6 @@ $(document).on("ready", function(){
       replayGame();
     });
   }
-
-
-
-// have either a puppy or zombie show up, challenge user to kil zombie or save puppy as fast as possible.
-// have name input that logs all users, and best score will show?
 
   function puppyProtocol() {
     var randomIndex = Math.floor(Math.random()*puppyImages.length);
@@ -79,7 +75,7 @@ $(document).on("ready", function(){
 
 
    // things to work on:
-   // 2. pop up messages for game loss
+   // 1. instead of appending <p> message, have pop up for game loss
    // 3. counter to count num zombies killed
    // 4. gun image to mimic aiming?
    // 6. zombie scream audio

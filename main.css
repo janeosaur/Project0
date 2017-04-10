@@ -38,7 +38,7 @@ p {
 }
 
 .gameboard {
-  min-height: 500px;
+  min-height: 300px;
   min-width: 700px;
   margin-bottom: 20px;
   margin-top: 30px;
@@ -59,15 +59,20 @@ p {
   margin-left: 100px;
 }
 
-.gamebuttons {
+h1, .gamebuttons {
   -webkit-transition: text-shadow 0.2s linear;
   -moz-transition: text-shadow 0.2s linear;
   -ms-transition: text-shadow 0.2s linear;
   -o-transition: text-shadow 0.2s linear;
   transition: text-shadow 0.2s linear;
 }
-.gamebuttons :hover {
+
+h1 :hover {
   text-shadow: 0 0 30px yellow;
+}
+
+.gamebuttons :hover {
+  text-shadow: 0 0 50px yellow;
   text-decoration: underline;
 }
 
@@ -82,6 +87,7 @@ p {
 }
 
 .social {
+  display: inline-block;
   float: left;
   margin: 5px 40px;
   width: 70px;
@@ -118,6 +124,11 @@ p {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+#twitter {
+  max-height: 50px;
+  max-width: 55px;
 }
 
 @keyframes shake {
