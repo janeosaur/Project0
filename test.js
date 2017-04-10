@@ -5,18 +5,23 @@ $(document).on("ready", function(){
 
   // play button
   $('.play').on('click', function startGame() {
-      showPuppyGif();
+      loadGame();
       randomPic();
+      showPic();
       $('.play').fadeOut(5000); // removes play button when pressed
   })
 
-  function replayGame() {
-    $('.images').empty();
-    $('#popup').empty();
-    $('.play').fadeIn(1000);
-  }
+  // replay button
+  $('.replay').on('click', replayGame);
 
-  function showPuppyGif() {     // loading screen
+    function replayGame() {
+      $('.images').empty();
+      $('#popup').empty();
+      $('.play').fadeIn(1000);
+    }
+
+  // loading screen
+  function loadGame() {
     $('.messages').append('<p id="loading"> Game is Loading... </p>');
     $('.messages').append('<img id="gif" src="images/puppy.gif"/>');
     $('.messages').children().fadeOut(2000, function() {
@@ -32,64 +37,40 @@ $(document).on("ready", function(){
   function randomPic() {
     var randomTime = 2000 + Math.random()*3000;
 
-    if (Math.random() > 0.45) {
+    if (Math.random() > 0.35) {
       setTimeout(zombieProtocol, randomTime);
     } else {
       setTimeout(puppyProtocol, randomTime);
     }
-  } // end of randomPic
+  } 
 
   function zombieProtocol() {
-    var createdTime = Date.now();
     var randomIndex = Math.floor(Math.random()*zombieImages.length);
     $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomIndex]+ ' '+ "/>");
-
-    // to place image in random area
-    var top = Math.random() * 500;
-    var left = Math.random() * 500;
-    var rotate = Math.random() * 40;
-
-    $('.images').css({'top' : top + 'px', 'left' : left + 'px', 'transform': 'rotate('+ rotate + 'deg)'});
-
-    // define zombie clicking function
-    $('#zombie').on('click', function(event) {
-      clickedTime = Date.now();
-      reactionTime = (clickedTime - createdTime)/1000;
-      $('.reaction').append('<p>  ' +reactionTime + ' seconds &nbsp &nbsp </p>');
-      event.target.style.display = 'none';
-      replayGame();
+    $('#zombie').on('click', function() {
+      $('#zombie').remove();
+      // randomPic(); // works, but goes on infinite loop?
+      // count num of zombies
     });
   }
-
-   // can the popup have link to go to SPCA? or any API ?
-
-// have either a puppy or zombie show up, challenge user to kil zombie or save puppy as fast as possible.
-// have name input that logs all users, and best score will show?
 
   function puppyProtocol() {
     var randomIndex = Math.floor(Math.random()*puppyImages.length);
     $('.images').append("<img id='puppy' src='" + puppyImages[randomIndex]+ "'/>");
-
-    // to place image in random area
-    var top = Math.random() * 200;
-    var left = Math.random() * 300;
-    var rotate = Math.random() * 30;
-
-    $('.images').css({'top' : top + 'px', 'left' : left + 'px', 'transform': 'rotate('+ rotate + 'deg)'});
-
-    // define puppy saving function
     $(document).keypress(function(e) { // on enter keypress, puppy image gets removed
       if(e.which == 13) {
         $('#puppy').remove();
-      };
-      replayGame();
+        // randomPic(); // works, but goes on infinite loop?
+      }
     });
 
     $('#puppy').on('click', function murder(){ // if puppy gets clicked, then loser game.
-      $('.gameboard').prepend('<img id="popup" src="images/stop.png"/>');
+      console.log('puppy murder');
+      $('#popup').append('<div class="messages"> YOU KILLED THIS INNOCENT PUPPY :( </div>'); // try to make this popup message?
       replayGame();
-    });
-  }
+    })
+    }  //end of puppyProtocol
+
 
 
    // things to work on:
