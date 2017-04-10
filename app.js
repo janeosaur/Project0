@@ -50,7 +50,7 @@ $(document).on("ready", function(){
       reactionTime = (clickedTime - createdTime)/1000;
       $('.times').append(`<p> ${reactionTime} seconds </p>`);
       event.target.style.display = 'none';
-      replayGame();
+      // replayGame();
     });
   }
 
@@ -76,9 +76,10 @@ $(document).on("ready", function(){
 
    // things to work on:
    // 1. instead of appending <p> message, have pop up for game loss
-   // 2. remove need to press play repeatedly
-   // 3. zombie scream audio
-   // 4. sound on/off feature
+   // 3. counter to count num zombies killed
+   // 4. gun image to mimic aiming?
+   // 6. zombie scream audio
+   // 7. sound on/off feature
 
 
 }); // ends doc on ready
