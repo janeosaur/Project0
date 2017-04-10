@@ -5,7 +5,7 @@ $(document).on("ready", function(){
 
   // play button
   $('.play').on('click', function startGame() {
-      showPuppyGif();
+      loadingScreen();
       randomPic();
       $('.play').fadeOut(5000); // removes play button when pressed
   })
@@ -16,7 +16,7 @@ $(document).on("ready", function(){
     $('.play').fadeIn(1000);
   }
 
-  function showPuppyGif() {     // loading screen
+  function loadingScreen() {     // loading screen
     $('.messages').append('<p id="loading"> Game is Loading... </p>');
     $('.messages').append('<img id="gif" src="images/puppy.gif"/>');
     $('.messages').children().fadeOut(2000, function() {
@@ -44,13 +44,6 @@ $(document).on("ready", function(){
     var randomIndex = Math.floor(Math.random()*zombieImages.length);
     $('.images').append("<img id='zombie' src=" + ' ' + zombieImages[randomIndex]+ ' '+ "/>");
 
-    // to place image in random area
-    var top = Math.random() * 500;
-    var left = Math.random() * 500;
-    var rotate = Math.random() * 40;
-
-    $('.images').css({'top' : top + 'px', 'left' : left + 'px', 'transform': 'rotate('+ rotate + 'deg)'});
-
     // define zombie clicking function
     $('#zombie').on('click', function(event) {
       clickedTime = Date.now();
@@ -69,13 +62,6 @@ $(document).on("ready", function(){
   function puppyProtocol() {
     var randomIndex = Math.floor(Math.random()*puppyImages.length);
     $('.images').append("<img id='puppy' src='" + puppyImages[randomIndex]+ "'/>");
-
-    // to place image in random area
-    var top = Math.random() * 200;
-    var left = Math.random() * 300;
-    var rotate = Math.random() * 30;
-
-    $('.images').css({'top' : top + 'px', 'left' : left + 'px', 'transform': 'rotate('+ rotate + 'deg)'});
 
     // define puppy saving function
     $(document).keypress(function(e) { // on enter keypress, puppy image gets removed
