@@ -75,11 +75,12 @@ $(document).on("ready", function(){
 
 
    // things to work on:
-   // 1. instead of appending <p> message, have pop up for game loss
-   // 3. counter to count num zombies killed
-   // 4. gun image to mimic aiming?
-   // 6. zombie scream audio
-   // 7. sound on/off feature
+   // 1. instead of appending <p> message, have pop up (modal) for game loss
+   // 2. counter to count num zombies killed
+   // 3. gun image to mimic aiming?
+   // 4. zombie scream audio when it appears (and gets killed)? (and puppy)
+   // 5. sound on/off feature
+   // 6. have images come up without needing to press play
 
 
 }); // ends doc on ready
